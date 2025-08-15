@@ -1,0 +1,313 @@
+.navigation-bar {
+  background-color: lightblue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Align links, cart, and profile buttons in the same row */
+.nav-links,
+.shopping-cart,
+.profile-button {
+  display: flex;
+  gap: 20px;
+  /* Adds consistent spacing between elements */
+  align-items: center;
+}
+
+/* Ensure that links are horizontally aligned */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.shopping-cart {
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust margin to keep profile button and cart aligned */
+.profile-button {
+  margin-left: 20px;
+}
+
+/* General styling for links */
+a,
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover,
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Styles for the user icon */
+.user-icon {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.user-icon svg {
+  color: lightpink;
+  font-size: 30px;
+}
+
+.user-icon:hover {
+  background-color: #ffcccb;
+}
+
+/* Styles for the dropdown menu */
+.profile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: lightpink;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-dropdown li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.profile-dropdown button {
+  background-color: lightcoral;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  background-color: red;
+}
+
+/* Styling for the shopping cart */
+.shopping-cart {
+  position: relative;
+}
+
+/* Cart Button styling */
+.cart-button {
+  background-color: lightblue;
+  padding: 10px;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.cart-button:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown cart styling */
+.cart-dropdown {
+  position: absolute;
+  top: 40px;
+  right: auto;
+  left: 65%;
+  width: 250px;
+  background-color: lightpink;
+  border: 3px solid rgb(152, 90, 25);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: -10px -10px 5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transform: translateX(-50%);
+
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Ensures items align to the left */
+  justify-content: space-between;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  /* width: 100%; */
+}
+
+/* Adjust size of the cart item image */
+.cart-item-image {
+  width: 50px;
+  /* Adjust image size */
+  height: auto;
+  border: 2px solid rgb(152, 90, 25) !important;
+
+}
+
+.remove-item-button {
+  background-color: transparent;
+  color: white;
+  padding: 0px 0px;
+  /* border-radius: 3px; */
+  /* cursor: pointer; */
+  /* margin-left: auto; */
+  /* Push to the right */
+  /* height: 30px; */
+  /* display: flex;
+  align-items: start; */
+}
+
+.remove-item-button:hover {
+  background: lightcoral;
+}
+
+.checkout-button {
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.checkout-button:hover {
+  background-color: #8bbbcc;
+}
+
+/* Scrollbar customization for the cart */
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  background-color: lightblue;
+  border-radius: 3px;
+}
+
+/* Other general styles (if any) */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 24px;
+  /* Adjust size as needed */
+  color: black;
+}
+
+.shoppping-cart-items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start !important;
+  flex-direction: column;
+
+}
+
+
+.quantity-selector {
+  background-color: lightblue;
+  border: none
+}
+
+/* Position the red dot directly on the shopping cart */
+.cart-notification {
+  position: absolute;
+  top: 0px;
+  /* Adjust as needed to align it perfectly */
+  right: 0px;
+  /* Adjust to move it closer */
+  background-color: lightpink;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: translate(50%, -50%);
+  /* Moves it slightly up and to the right */
+}
+
+/* Ensure the shopping cart container is positioned correctly */
+.shopping-cart {
+  position: relative;
+}
+
+/* Ensure the cart button is properly positioned */
+.cart-button {
+  position: relative;
+  background-color: lightblue;
+  padding: 10px;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+/* Make sure the cart icon is positioned correctly */
+.cart-icon {
+  font-size: 24px;
+  /* Adjust size if necessary */
+  color: black;
+}
+
+.checkout-container {
+  position: relative;
+  display: inline-block;
+}
+
+.checkout-tooltip {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  /* Adjusted to align with the cursor */
+  left: 100%;
+  /* Position it right next to the button */
+  transform: translateX(10px);
+  /* Adjust the horizontal distance to the right */
+  width: max-content;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  /* Prevent it from interfering with other elements */
+}
+
+.checkout-container:hover .checkout-tooltip {
+  visibility: visible;
+  opacity: 1;
+}

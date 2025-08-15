@@ -1,0 +1,124 @@
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    /* Align items at the top */
+    margin-bottom: 1px;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.cart-item-image {
+    /* Adjust size as needed */
+
+    width: 100px;
+
+    /* Space between image and item details */
+    height: 100px;
+
+    margin-right: 10px;
+
+    /* Ensure the image doesn't stretch */
+    object-fit: cover;
+
+    border: 1px solid black;
+
+}
+
+.modal-content {
+    background-color: lightpink !important;
+    border: 3px solid rgb(152, 90, 25);
+    border-radius: 5px;
+
+}
+
+.cart-items-in-checkout {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+    padding-right: 5px;
+    /* Prevents content from hiding under scrollbar */
+    padding-top: 10px;
+}
+
+/* Scrollbar customization for the cart */
+.cart-items-in-checkout::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items-in-checkout::-webkit-scrollbar-thumb {
+    background-color: lightblue;
+    border-radius: 3px;
+}
+
+/* .modal-content h3 {
+    margin-bottom: 20px;
+} */
+
+
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.modal-checkout-button,
+.modal-cancel-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+}
+
+.modal-checkout-button {
+    background-color: lightblue;
+    color: white;
+}
+
+.modal-cancel-button {
+    background-color: lightcoral;
+    color: white;
+}
+
+.modal-checkout-button:hover {
+    background-color: #8bbbcc;
+}
+
+.modal-cancel-button:hover {
+    background-color: red;
+}
+
+
+.price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex flex-start;
+}
+
+.item-price {
+    font-weight: bold;
+}
+
+.formTel input,
+.formName input,
+.formEmail input {
+    border: 2px solid brown;
+    background-color: lightblue;
+    width: 75%;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 12px;
+}

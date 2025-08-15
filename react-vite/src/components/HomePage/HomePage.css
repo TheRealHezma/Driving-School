@@ -1,0 +1,210 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    background-color: pink;
+    /* Set background color for the entire page */
+}
+
+.homepage-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.homepage-content.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.homepage-image {
+    flex: 1;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    /* 3D shadow effect for images */
+}
+
+.homepage-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    /* Darker grey shadow */
+    display: block;
+    /* Ensure no extra space from inline elements */
+    margin: 0;
+    /* Remove any default margin */
+}
+
+.homepage-text {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffd1dc;
+    /* Lighter pink box for text area */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for text area */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.active-button {
+    background-color: #a17f35;
+    color: white;
+}
+
+.disabled-button {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-links {
+    margin-top: 5px;
+}
+
+.footer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+.contact-style {
+    display: flex;
+    justify-content: space-around;
+    /* Evenly distribute elements */
+    align-items: center;
+    background-color: #87cefa;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+    /* Limit max size */
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: auto;
+    /* Center it horizontally */
+    flex-wrap: wrap;
+    /* Prevent overflow on small screens */
+}
+
+.contact-container,
+.time {
+    background-color: #ffd1dc;
+    width: 30%;
+    /* Each section takes up 30% */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    /* Increased size */
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    /* Make it circular */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.facebook a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.facebook svg {
+    font-size: 48px !important;
+    /* Increase icon size */
+    color: black;
+}
+
+/* Responsive: Stack on smaller screens */
+@media screen and (max-width: 768px) {
+    .contact-style {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-container,
+    .time {
+        width: 80%;
+    }
+}
+
+
+
+
+.cookie {
+    position: absolute;
+    top: -50px;
+    /* Start above the screen */
+    width: 150px;
+    /* Increased size */
+    height: 150px;
+    /* Increased size */
+    background-image: url('../../../public/falldown-logo.png');
+    background-size: contain;
+    /* Ensure image scales without cutting off */
+    background-position: center;
+    /* Center image */
+    background-repeat: no-repeat;
+    animation: fall 4s linear forwards;
+    pointer-events: none;
+    /* So it doesn't interfere with clicks */
+}
+
+/* Falling and rotating animation combined */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        /* Start at top, no rotation */
+        opacity: 1;
+        /* Start fully visible */
+    }
+
+    80% {
+        transform: translateY(calc(100vh + 100px)) rotate(180deg);
+        /* Move down and rotate halfway */
+        opacity: 1;
+        /* Keep full opacity longer */
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 100px)) rotate(360deg);
+        /* End at bottom, full rotation */
+        opacity: 0;
+        /* Fade out */
+    }
+}
