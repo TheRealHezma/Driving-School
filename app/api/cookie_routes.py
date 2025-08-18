@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Cookie, Review, User
 from datetime import datetime, timezone
-from app.aws_helpers import upload_file_to_s3
+# from app.aws_helpers import upload_file_to_s3
 # from flask_mail import Message
 
 cookie_routes = Blueprint('cookies', __name__)
