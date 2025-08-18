@@ -8,6 +8,7 @@ import CreateCookieForm from '../components/CookiesPages/CreateCookieForm';
 import EditCookieForm from '../components/CookiesPages/EditCookieForm'
 import HomePage from '../components/HomePage/HomePgae';
 import OrderConf from '../components/OrderConfirmation/orderConf';
+import PracticeTest from '../components/PracticeTest/PracticeTest';
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: 'cookies/thank-you',
         element: <OrderConf />
+      },
+      {
+        path: '/practicetest',
+        element: <PracticeTest />,
       }
     ],
   },
