@@ -22,15 +22,15 @@ export default function HomePage() {
     const sections = [
         {
             image: chocChipImage,
-            text: "Welcome to Aunt Angie's Cookies! Discover our delicious selection of homemade cookies.",
+            text: "Text here",
         },
         {
             image: gojo_chibi,
-            text: "Our cookies are made with love and the finest ingredients, ensuring every bite is a treat.",
+            text: "Text here",
         },
         {
             image: pokemonSugarCook,
-            text: "Try our fun and colorful Pokemon sugar cookies! They're a hit with kids and adults alike.",
+            text: "Text here",
         },
         // {
         //     image: pumpkinFallSugarCook,
@@ -38,55 +38,11 @@ export default function HomePage() {
         // },
         {
             image: summer_cookies,
-            text: "Don't forget to place your order for the Forth of July!"
+            text: "Text here",
         }
     ];
 
-    function rainCookies() {
-        const numCookies = 10;
-        const cookies = [];
 
-        for (let i = 0; i < numCookies; i++) {
-            const cookie = document.createElement("div");
-            cookie.classList.add("cookie");
-
-            // Initially hide the cookie
-            cookie.style.display = "none";
-
-            // Random horizontal position
-            cookie.style.left = Math.random() * window.innerWidth + "px";
-
-            // Random delay before starting the animation
-            const delay = Math.random() * 2 + "s"; // Random delay between 0 and 2 seconds
-
-            // Set the random animation duration
-            cookie.style.animationDuration = 2.5 + Math.random() * 1 + "s";
-
-            // After the delay, make the cookie visible and start the animation
-            setTimeout(() => {
-                cookie.style.display = "block"; // Make the cookie visible
-            }, Math.random() * 2 * 1000); // Random delay before the cookie is visible
-
-            // Append to body
-            document.body.appendChild(cookie);
-            cookies.push(cookie);
-
-            // Remove cookie after animation ends
-            setTimeout(() => {
-                cookie.remove();
-            }, 5000);
-        }
-
-        // Clean up cookies when component unmounts
-        return () => {
-            cookies.forEach(cookie => cookie.remove());
-        };
-    }
-
-    useEffect(() => {
-        const cleanup = rainCookies();
-        return cleanup;
-    }, []);
 
 
 
