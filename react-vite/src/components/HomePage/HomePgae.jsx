@@ -61,13 +61,6 @@ export default function HomePage() {
                     </div>
                 </div>
             ))}
-            <button
-                onClick={handleClick}
-                disabled={!sessionUser}
-                className={sessionUser ? 'active-button' : 'disabled-button'}
-            >
-                {sessionUser ? 'See All Cookies' : 'Please Log In'}
-            </button>
             <footer className="footer">
                 {/* <p>Web Developer: Hemza Mansour</p>
                 <div className="footer-links">
