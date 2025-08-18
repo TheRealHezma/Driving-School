@@ -1,5 +1,5 @@
 .navigation-bar {
-  background-color: lightblue;
+  background-color: rgb(93, 93, 93);
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -61,15 +61,16 @@ a:hover,
   position: absolute;
   top: 10px;
   right: 20px;
+  background-color: black;
 }
 
 .user-icon svg {
-  color: lightpink;
+  color: yellow;
   font-size: 30px;
 }
 
 .user-icon:hover {
-  background-color: #ffcccb;
+  background-color: white;
 }
 
 /* Styles for the dropdown menu */
@@ -115,7 +116,7 @@ a:hover,
   background-color: lightblue;
   padding: 10px;
   border: none;
-  color: black;
+  color: rgb(82, 82, 82);
   cursor: pointer;
 }
 
