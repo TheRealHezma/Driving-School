@@ -6,3 +6,63 @@
     background-color: yellow;
 
 }
+
+.score-summary {
+    background-color: #f0f8ff;
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.pass-message {
+    color: green;
+    font-weight: bold;
+}
+
+.fail-message {
+    color: red;
+    font-weight: bold;
+}
+
+.submit-button,
+.reset-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.correct-answer {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+.wrong-answer {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+}
+
+.correct-icon {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect-icon {
+    color: red;
+    font-weight: bold;
+}
+
+.incomplete-message {
+    color: #856404;
+    font-style: italic;
+}
