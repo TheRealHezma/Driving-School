@@ -9,6 +9,7 @@ import EditCookieForm from '../components/CookiesPages/EditCookieForm'
 import HomePage from '../components/HomePage/HomePgae';
 import OrderConf from '../components/OrderConfirmation/orderConf';
 import PracticeTest from '../components/PracticeTest/PracticeTest';
+import TempsBooklet from '../components/TempsBooklet/TempsBooklet';
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       {
         path: '/practicetest',
         element: <PracticeTest />,
+      },
+      {
+        path: '/tempsbooklet',
+        element: <TempsBooklet />
       }
     ],
   },

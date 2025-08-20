@@ -17,4 +17,13 @@ export default defineConfig((mode) => ({
       "/api": "http://127.0.0.1:8000",
     },
   },
+  // define: {
+  //   global: 'globalThis',
+  // },
+  // resolve: {
+  //   alias: {
+  //     // Add this if you're having issues with canvas
+  //     canvas: false,
+  //   }
+  // }
 }));
