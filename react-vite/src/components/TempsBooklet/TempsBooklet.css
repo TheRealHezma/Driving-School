@@ -1,5 +1,16 @@
 .tempsBackground {
-    background-color: white;
+    background-color: #f0f4f8;
+    /* A more subtle blue/gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .pdf-viewer {
@@ -10,11 +21,40 @@
     max-width: 900px;
 }
 
-/* Style the PDF page */
+/* New style for the two-page layout */
+.pdf-viewer.two-page-layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Allows pages to wrap on smaller screens */
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+}
+
+.react-pdf__Document {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
 .react-pdf__Page {
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/*
+    IMPORTANT FIX:
+    This rule is now outside the media query.
+    It applies to desktop views for the side-by-side layout.
+*/
+.pdf-page-two-up {
+    width: calc(50% - 10px);
+    /* Ensures they fit side-by-side with a gap */
+    height: auto;
 }
 
 .react-pdf__Page__canvas {
@@ -23,7 +63,6 @@
     height: auto;
 }
 
-/* Navigation controls */
 .pdf-controls {
     display: flex;
     align-items: center;
@@ -43,11 +82,12 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 .nav-button:hover:not(:disabled) {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 .nav-button:disabled {
@@ -83,6 +123,10 @@
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
+.layout-controls {
+    margin-top: 20px;
+}
+
 .download-button {
     display: inline-block;
     margin-top: 20px;
@@ -92,11 +136,12 @@
     text-decoration: none;
     border-radius: 5px;
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 .download-button:hover {
     background-color: #218838;
+    transform: translateY(-2px);
 }
 
 /* Responsive design */
@@ -108,6 +153,25 @@
 
     .nav-button {
         width: 120px;
+    }
+
+    /* On mobile, stack pages vertically for readability */
+    .pdf-viewer.two-page-layout {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /*
+        IMPORTANT FIX:
+        This rule is now inside the media query and sets the width to 100% on mobile.
+    */
+    .pdf-page-two-up {
+        width: 100%;
+        height: auto;
+    }
+
+    .react-pdf__Document {
+        flex-direction: column;
     }
 
     .react-pdf__Page {
