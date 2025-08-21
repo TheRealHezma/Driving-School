@@ -1,180 +1,73 @@
-.tempsBackground {
-    background-color: #f0f4f8;
-    /* A more subtle blue/gray background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Inter', sans-serif;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
+/* Base container for PDF viewer */
 .pdf-viewer {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Outside container of pdf */
+/* .pdf-outline {
+    background-color: yellow;
+} */
+
+/* Single-page mode (default) */
+.pdf-viewer.single-page-layout .react-pdf__Document {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px auto;
-    max-width: 900px;
 }
 
-/* New style for the two-page layout */
-.pdf-viewer.two-page-layout {
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* Allows pages to wrap on smaller screens */
-    justify-content: center;
-    gap: 20px;
-    max-width: 100%;
-}
-
-.react-pdf__Document {
+/* Two-page mode */
+.pdf-viewer.two-page-layout .react-pdf__Document {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
     justify-content: center;
     gap: 20px;
+    /* Space between pages */
 }
 
+/* Page styling */
 .react-pdf__Page {
-    border: 1px solid #ccc;
+    margin: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
+    background: white;
 }
 
-/*
-    IMPORTANT FIX:
-    This rule is now outside the media query.
-    It applies to desktop views for the side-by-side layout.
-*/
-.pdf-page-two-up {
-    width: calc(50% - 10px);
-    /* Ensures they fit side-by-side with a gap */
-    height: auto;
+/* Two-page mode: allow both pages to fit side by side */
+.pdf-viewer.two-page-layout .react-pdf__Page {
+    flex: 1 1 auto;
+    width: auto;
+    /* Scale naturally */
+    max-width: 50%;
+    /* Ensure they fit side by side */
 }
 
-.react-pdf__Page__canvas {
+/* Canvas inside each page */
+.react-pdf__Page canvas {
     display: block;
+    margin: 0 auto;
     max-width: 100%;
-    height: auto;
+    height: auto !important;
 }
 
-.pdf-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-}
-
-.nav-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-.nav-button:hover:not(:disabled) {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-.nav-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.page-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.page-info span {
-    font-weight: 500;
-    color: #495057;
-}
-
-.page-input {
-    width: 60px;
-    padding: 5px 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.page-input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-}
-
-.layout-controls {
-    margin-top: 20px;
-}
-
-.download-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-.download-button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
-}
-
-/* Responsive design */
+/* Mobile: force single column layout */
 @media (max-width: 768px) {
-    .pdf-controls {
+    .pdf-viewer.two-page-layout .react-pdf__Document {
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
     }
 
-    .nav-button {
-        width: 120px;
-    }
-
-    /* On mobile, stack pages vertically for readability */
-    .pdf-viewer.two-page-layout {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    /*
-        IMPORTANT FIX:
-        This rule is now inside the media query and sets the width to 100% on mobile.
-    */
-    .pdf-page-two-up {
-        width: 100%;
-        height: auto;
-    }
-
-    .react-pdf__Document {
-        flex-direction: column;
-    }
-
-    .react-pdf__Page {
+    .pdf-viewer.two-page-layout .react-pdf__Page {
         max-width: 100%;
     }
 }

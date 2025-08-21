@@ -71,55 +71,58 @@ function TempsBooklet() {
     return (
         <div className="tempsBackground">
             <h1>Ohio Temps Booklet</h1>
+            <div className="pdf-outline">
 
-            <div className={`pdf-viewer ${isTwoPageLayout ? 'two-page-layout' : ''}`}>
-                <Document
-                    file={pdfFile}
-                    onLoadSuccess={onDocumentLoadSuccess}
-                    loading={<div>Loading PDF...</div>}
-                    error={<div>Failed to load PDF file.</div>}
-                >
-                    {getPagesToRender().map(pageNumber => (
-                        <Page
-                            key={`page_${pageNumber}`}
-                            pageNumber={pageNumber}
-                            scale={1.0}
-                            loading={<div>Loading page...</div>}
-                            renderAnnotationLayer={false}
-                            renderTextLayer={false}
-                            // Add a specific class for styling the two-page layout
-                            className={isTwoPageLayout ? 'pdf-page-two-up' : ''}
-                        />
-                    ))}
-                </Document>
+                <div className={`pdf-viewer ${isTwoPageLayout ? 'two-page-layout' : ''}`}>
+                    <Document
+                        file={pdfFile}
+                        onLoadSuccess={onDocumentLoadSuccess}
+                        loading={<div>Loading PDF...</div>}
+                        error={<div>Failed to load PDF file.</div>}
+                    >
+                        {getPagesToRender().map(pageNumber => (
+                            <Page
+                                key={`page_${pageNumber}`}
+                                pageNumber={pageNumber}
+                                scale={1.0}
+                                loading={<div>Loading page...</div>}
+                                renderAnnotationLayer={false}
+                                renderTextLayer={false}
+                                // Add a specific class for styling the two-page layout
+                                className={isTwoPageLayout ? 'pdf-page-two-up' : ''}
+                            />
+                        ))}
+                    </Document>
 
-                {/* Navigation Controls */}
-                {numPages && (
-                    <div className="pdf-controls">
-                        <button
-                            onClick={goToPrevPage}
-                            disabled={currentPage <= 1}
-                            className="nav-button"
-                        >
-                            ← Previous
-                        </button>
+                    {/* Navigation Controls */}
+                    {numPages && (
+                        <div className="pdf-controls">
+                            <button
+                                onClick={goToPrevPage}
+                                disabled={currentPage <= 1}
+                                className="nav-button"
+                            >
+                                ← Previous
+                            </button>
 
-                        <div className="page-info">
-                            <span>
-                                Page {currentPage} of {numPages}
-                            </span>
+                            <div className="page-info">
+                                <span>
+                                    Page {currentPage} of {numPages}
+                                </span>
+                            </div>
+
+                            <button
+                                onClick={goToNextPage}
+                                disabled={currentPage + (isTwoPageLayout ? 1 : 0) >= numPages}
+                                className="nav-button"
+                            >
+                                Next →
+                            </button>
                         </div>
-
-                        <button
-                            onClick={goToNextPage}
-                            disabled={currentPage + (isTwoPageLayout ? 1 : 0) >= numPages}
-                            className="nav-button"
-                        >
-                            Next →
-                        </button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
+
 
             {/* Layout Toggle Button */}
             {numPages && (
