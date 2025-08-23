@@ -70,7 +70,7 @@ function TempsBooklet() {
 
     return (
         <div className="tempsBackground">
-            <h1>Ohio Temps Booklet</h1>
+            <h1>Ohio Driver Manual</h1>
             <div className="pdf-outline">
 
                 <div className={`pdf-viewer ${isTwoPageLayout ? 'two-page-layout' : ''}`}>

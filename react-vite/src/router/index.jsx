@@ -10,6 +10,7 @@ import HomePage from '../components/HomePage/HomePgae';
 import OrderConf from '../components/OrderConfirmation/orderConf';
 import PracticeTest from '../components/PracticeTest/PracticeTest';
 import TempsBooklet from '../components/TempsBooklet/TempsBooklet';
+import DrivingTestInfo from '../components/DrivingTestInfo/DrivingTestInfo';
 
 export const router = createBrowserRouter([
   {
@@ -58,7 +59,11 @@ export const router = createBrowserRouter([
       {
         path: '/tempsbooklet',
         element: <TempsBooklet />
-      }
+      },
+      {
+        path: '/drivingtestinfo',
+        element: <DrivingTestInfo />
+      },
     ],
   },
 ]);
